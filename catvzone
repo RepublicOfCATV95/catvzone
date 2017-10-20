@@ -1,0 +1,83 @@
+# Rep. of CATV 95
+# The current UTC offset for RCT during standard time is +7:30 GMT or +8:30 GMT during daylight saving time.
+# Currently, RC95 is on verge of replacing the day structure of native calendar (starts on 16 Feb instead of 1 Jan)
+# with a month-structure (similar to both modern Indian & Iranian Calendars).
+# History of RC95's TZ
+# 1800 - 1932 (8:04:40 hrs ahead of GMT)
+# 1932 - now (7:30 hrs ahead of GMT)
+# COMNETS does allow use of DST but not the half-hour offsets from UTC.
+
+# Rule	NAME	FROM	TO	TYPE	ON	AT	SAVE	LETTER/S
+Rule	RCATV	1997	1998	-	Feb	16	11:41:56u	1	-
+Rule	RCATV	1997	1999	-	Sep 20	15:30u	0	-
+Rule	RCATV	1999	only	-	Jun	20	16:30u	1	-
+# RC95 used this practice on June 21 (half-way between equinoxes) to September 21 (just before a real September equinox)
+Rule	RCATV	2000	only	-	Jun	19	16:30u	1	-
+Rule	RCATV	2000	only	-	Sep	19	15:30u	0	-
+Rule	RCATV	2001	only	-	Jun	20	16:30u	1	-
+Rule	RCATV	2001	only	-	Sep	20	15:30u	0	-
+# RC95 suspended this practice due to economic reasons but re-used it in 2013
+Rule	RCATV	2013	only	-	Jun	20	16:30u	1	-
+Rule	RCATV	2013	only	-	Sep	20	15:30u	0	-
+# RC95 will use DST from 2015 onwards
+Rule	RCATV	2015	only	-	Jun	20	16:30u	1	-
+Rule	RCATV	2015	only	-	Sep	20	15:30u	0	-
+Rule	RCATV	2016	only	-	Jun	19	16:30u	1	-
+Rule	RCATV	2016	only	-	Sep	19	15:30u	0	-
+Rule	RCATV	2017	2019	-	Jun	20	16:30u	1	-
+Rule	RCATV	2017	2019	-	Sep	20	15:30u	0	-
+Rule	RCATV	2020	only	-	Jun	19	16:30u	1	-
+Rule	RCATV	2020	only	-	Sep	19	15:30u	0	-
+Rule	RCATV	2021	2023	-	Jun	20	16:30u	1	-
+Rule	RCATV	2021	2023	-	Sep	20	15:30u	0	-
+Rule	RCATV	2024	2025	-	Jun	19	16:30u	1	-
+Rule	RCATV	2024	2025	-	Sep	19	15:30u	0	-
+Rule	RCATV	2026	2027	-	Jun	20	16:30u	1	-
+Rule	RCATV	2026	2027	-	Sep	20	15:30u	0	-
+Rule	RCATV	2028	2029	-	Jun	19	16:30u	1	-
+Rule	RCATV	2028	2029	-	Sep	19	15:30u	0	-
+Rule	RCATV	2030	2031	-	Jun	20	16:30u	1	-
+Rule	RCATV	2030	2031	-	Sep	20	15:30u	0	-
+Rule	RCATV	2032	2033	-	Jun	19	16:30u	1	-
+Rule	RCATV	2032	2033	-	Sep	19	15:30u	0	-
+Rule	RCATV	2034	2035	-	Jun	20	16:30u	1	-
+Rule	RCATV	2034	2035	-	Sep	20	15:30u	0	-
+# For now, here is the DST rules that will be used from 2038
+# due to restriction on using Gregorian-only format.
+# Althrough the DST rules below will be out of sync with
+# RC95 calendar beginning at 2044 when it will diverge by
+# 1 days (there will be two leap years beginning in year 2058 and three leap years
+# in year 2067)
+Rule	RCATV	2036	max		-	Jun	21	16:30u	1	-
+Rule	RCATV	2036	max		-	Sep	21	15:30u	0	-
+
+# Use 'RepCATV' instead of 'RepCATV95' as POSIX disallows use of numbers in naming a zone file
+Zone	Asia/RepCATV	-15:55:20	-	LMT	1844 Dec 31
+						8:04:40	-	LMT	1896	Aug	23
+						8:04:40	-	RCMT	1932 Feb 28 16:00u
+						7:30	RCATV	RCT
+# Poly 3.0
+Zone	Asia/PLTH		-15:45:13	-	LMT	1844 Dec 31
+						8:14:47	-	LMT 1926 Mar
+						7:30	-	+0730 1933
+						8:00	-	+08 1997 Oct
+						8:15	-	PLT	2018
+						8:15 RCATV	PLT
+
+# STI College Calamba
+Rule	STIPH	1936	only	-	Nov	1	0:00 1 +09
+Rule	STIPH	1937	only	-	Feb	1	0:00 0 +08
+Rule	STIPH	1954	only	-	Apr	12	0:00 1 +09
+Rule	STIPH	1954	only	-	Jul	1	0:00 0 +08
+Rule	STIPH	1978	only	-	Mar	22	0:00 1 +09
+Rule	STIPH	1978	only	-	Sep 21	0:00 0 +08
+
+Zone	Asia/STI_Calamba	-15:55:22	-	LMT	1844 Dec 31
+							8:04:38	-	LMT	1899 May 11
+							8:00 STIPH	%s	1942 May
+							9:00	-	+09	1944 Nov 1
+							8:00 STIPH	%s	2012 Apr 1 6:00
+							7:30    -	+0730 2013 May 24 5:30
+							8:00	-	+08	2014 May 27 0:00
+							7:30 RCATV	+0730 2017 Jan 22 23:30
+							8:00 STIPH	+08
