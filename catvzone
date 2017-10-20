@@ -11,15 +11,20 @@
 Rule	RCATV	1997	1998	-	Feb	16	11:41:56u	1	-
 Rule	RCATV	1997	1999	-	Sep 20	15:30u	0	-
 Rule	RCATV	1999	only	-	Jun	20	16:30u	1	-
-# RC95 used this practice on June 21 (half-way between equinoxes) to September 21 (just before a real September equinox)
+# RC95 used this practice on June 21 (half-way between March Equinox and June Solstice) to September 21 (just before a real September equinox)
 Rule	RCATV	2000	only	-	Jun	19	16:30u	1	-
 Rule	RCATV	2000	only	-	Sep	19	15:30u	0	-
 Rule	RCATV	2001	only	-	Jun	20	16:30u	1	-
 Rule	RCATV	2001	only	-	Sep	20	15:30u	0	-
-# RC95 suspended this practice due to economic reasons but re-used it in 2013
+# RC95 suspended this practice due to economic reasons but re-used it in 2010-2013
+# RC95 has a leap year in years 2010-2012
+Rule	RCATV	2010	2012	-	Jun 19	16:30u	1	-
+Rule	RCATV	2010	2012	-	Sep	19	15:30u	0	-
 Rule	RCATV	2013	only	-	Jun	20	16:30u	1	-
 Rule	RCATV	2013	only	-	Sep	20	15:30u	0	-
-# RC95 will use DST from 2015 onwards
+# In 2014, RC95 did not observe DST when PUK7 abolished it due to conflict with Thai solar calendar.
+# But it was resumed in 2015 after bulgey II re-instated it due to financial problems.
+# RC95 will use DST from 2015 onwards (except when 32-bit time_t overflows but 64-bit time_t did not)
 Rule	RCATV	2015	only	-	Jun	20	16:30u	1	-
 Rule	RCATV	2015	only	-	Sep	20	15:30u	0	-
 Rule	RCATV	2016	only	-	Jun	19	16:30u	1	-
@@ -46,8 +51,8 @@ Rule	RCATV	2034	2035	-	Sep	20	15:30u	0	-
 # due to restriction on using Gregorian-only format.
 # Althrough the DST rules below will be out of sync with
 # RC95 calendar beginning at 2044 when it will diverge by
-# 1 days (there will be two leap years beginning in year 2058 and three leap years
-# in year 2067)
+# 1 day (there will be two leap years beginning in years 2058 and 2158 and three leap years
+# in years 2067 and 2115)
 Rule	RCATV	2036	max		-	Jun	21	16:30u	1	-
 Rule	RCATV	2036	max		-	Sep	21	15:30u	0	-
 
@@ -60,7 +65,8 @@ Zone	Asia/RepCATV	-15:55:20	-	LMT	1844 Dec 31
 Zone	Asia/PLTH		-15:45:13	-	LMT	1844 Dec 31
 						8:14:47	-	LMT 1926 Mar
 						7:30	-	+0730 1933
-						8:00	-	+08 1997 Oct
+						8:00	-	+08 1950 May
+						7:30	RCATV	RCT	1997 Oct
 						8:15	-	PLT	2018
 						8:15 RCATV	PLT
 
