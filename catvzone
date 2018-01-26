@@ -14,8 +14,9 @@
 # after the less jubilant groups changed it back to 2001 time zone.
 # It was changed back to Rep. of CATV 95 Standard Time on April 1, 2012, after PUK7 was fed up of having
 # RepCATV95 a hour and half behind Adelaide (also called 'Adelayed').
-# Guess that with mandatory transition to +08 removed because RepCATV95 has already started using its own calendar
-# as early as 2007.
+# In 2013, RepCATV95 may continue using UT+7.5 (unlike the older sources) because the peoples are allowed to choose their own time zone.
+# So the mandatory transition to PST or +08 is not required since no one uses it for both personal and economical reasons.
+# In 2018, the use of 40-minute offset (meaning that it is 11:50 a.m. when it is noon) for RCT is still not yet decided for now.
 # Rule	NAME	FROM	TO	TYPE	ON	AT	SAVE	LETTER/S
 Rule	RCATV	1997	1998	-	Feb	16	11:41:56u	1	-
 Rule	RCATV	1997	1999	-	Sep 20	15:30u	0	-
@@ -74,6 +75,10 @@ Rule	RCATV	2036	max		-	Sep	21	15:30u	0	-
 Zone	Asia/Calabarzon	-15:55:32	-	LMT	1844 Dec 31
 						8:04:28	-	LMT	1896 Aug 23
 						8:04:40	-	RCMT 1932 Feb 28 16:00u
+						7:30	-	RCT	1942 May 1
+						9:00	-	+09	1944 Oct 31 15:00u
+						7:30	-	RCT	1985 Nov 16
+						9:00	-	RCT	1987 Feb 2
 						7:30	RCATV	RCT	2000 Dec 31 16:00u
 						8:00	-	+08	2003 Nov 20 4:00s
 						8:00	1:00	+09	2004 May 31 4:00s
@@ -86,29 +91,36 @@ Zone	Asia/Calabarzon	-15:55:32	-	LMT	1844 Dec 31
 						8:00	-	+08	2013 Jun 1 0:00
 						8:00	-	PST
 						
-# Poly 3.0
-Rule	PolyT	1936	only	-	Nov	1	0:00	1:00	+09
-Rule	PolyT	1937	only	-	Feb	1	0:00	0:00	+08
-Rule	PolyT	1938	1941	-	Sep	14	0:00	0:20	+0820
-Rule	PolyT	1938	1941	-	Dec 14	0:00	0:00	+08
+# Poly 3.0 (or Polynomial 3.0 in 2014)
+# Starting on February 16, 2018 at 12:00 PM, the zone 'Asia/PLTH' will be superseded by 'Asia/RCATV/PolyThree'
+
+Rule	PolyT	1936	only	-	Nov	1	0:00	1	-
+Rule	PolyT	1937	only	-	Feb	1	0:00	0	S
+Rule	PolyTS	1938	1941	-	Sep	14	0:00	0:20	TS
+Rule	PolyTS	1938	1941	-	Dec 14	0:00	0	-
+Rule	PolyTS	2018	only	-	Jun	20	16:30u	0:15	S
+Rule	PolyTS	2018	only	-	Sep	20	15:30u	0	-
 Zone	Asia/PLTH		-15:45:13	-	LMT	1844 Dec 31
-						8:14:47	-	LMT 1926 Mar
-						7:30	-	+0730 1933
-						8:00	PolyT	%s	1942 May
+						8:14:47	-	LMT	1926 Mar
+						7:30	-	+0730	1933
+						8:00	PolyT	+08/+09	1938
+						8:00	PolyTS	+08/+0820	1942 May
 						9:00	-	+09	1944 Nov
-						8:00	-	+08 1950 May
-						7:30	RCATV	+0730/+0830	1997 Oct
-						8:15	-	+0815	2006 Sep 19 19:00u
-						8:45	-	+0845 2012 Mar 31 22:00u
-						8:15	-	+0815 2013 May 23 22:00u
+						8:00	-	+08	1950 May
+						7:30	-	RCT	1985 Nov 16
+						9:00	-	RCT	1987 Feb 2
+						7:30	RCATV	RCT	1997 Oct
+						8:15	-	PLT	2006 Sep 19 19:00u
+						8:45	-	+0845	2012 Mar 31 22:00u
+						8:15	-	PLT	2013 May 23 22:00u
 						8:00	-	+08	2013 Jun 1 0:00
 						8:00	-	PST	2015 Apr 21	16:00u # Philippine Standard Time
-						7:30	RCATV	+0730/+0830	2016 Jun 19 16:30u
+						7:30	RCATV	RCT	2016 Jun 19 16:30u
 						8:30	-	+0830	2017 Jan 16
-						8:15	-	+0815	2018
-						8:15	RCATV	+0815/+0915
+						8:15	PolyTS	PL%sT
 
 # Use 'RepCATV' instead of 'RepCATV95' as POSIX disallows use of numbers in naming a zone file
+# Starting on February 16, 2018, the zone 'Asia/RepCATV' will be superseded by 'Asia/RCATV/Main'.
 Zone	Asia/RepCATV	-15:55:20	-	LMT	1844 Dec 31
 						8:04:40	-	LMT	1896	Aug	23
 						8:04:40	-	RCMT	1932 Feb 28 16:00u
@@ -121,6 +133,7 @@ Zone	Asia/RepCATV	-15:55:20	-	LMT	1844 Dec 31
 						7:30	RCATV	RCT						
 
 # STI College Calamba
+# Will be deprecated and replaced by 'Asia/RCATV/NonCATV' (beginning on 16 Feb 2018 at 12:00 PM)
 Rule	STIPH	1936	only	-	Nov	1	0:00 1 +09
 Rule	STIPH	1937	only	-	Feb	1	0:00 0 +08
 Rule	STIPH	1954	only	-	Apr	12	0:00 1 +09
@@ -139,5 +152,3 @@ Zone	Asia/STI_Calamba	-15:55:22	-	LMT	1844 Dec 31
 							8:00	-	PST	2015 Apr 21 16:00u
 							7:30	RCATV	+0730/+0830	2017 Jan 22 16:00u
 							8:00	-	PST
-							
-						
